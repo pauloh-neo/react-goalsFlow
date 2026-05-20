@@ -19,7 +19,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "font-medium rounded-lg transition focus:outline-none focus:ring-2 flex items-center justify-center gap-2";
+    "cursor-pointer font-medium rounded-lg transition focus:outline-none focus:ring-2 flex items-center justify-center gap-2";
 
   const variants: Record<Variant, string> = {
     primary:
