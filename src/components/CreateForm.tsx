@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 export function CreateForm(){
     return(
         <form className="flex flex-col gap-3">
@@ -11,6 +13,9 @@ export function CreateForm(){
              focus:outline-none focus:ring-2 focus:ring-blue-500 
              focus:border-blue-500 transition" placeholder="Description" type="text" name="description" id="description" />
             </div>
+            <Button variant="primary">
+                Create
+            </Button>
         </form>
     )
 }
