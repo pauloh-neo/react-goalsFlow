@@ -5,7 +5,7 @@ type HeaderProps = {
 
 export function Header({title}:HeaderProps){
     return(
-        <h1 className="text-6xl font-medium text-gray-800">
+        <h1 className="text-center text-6xl font-medium text-gray-800">
             {title}
         </h1>
     )
