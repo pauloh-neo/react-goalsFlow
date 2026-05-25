@@ -14,7 +14,6 @@ function App() {
   const [goal, setGoal] = useState<string>("");
   const [goalsList, setGoalsList] = useState<Goals[]>([])
   const [description, setDescription] = useState<string>("")
-  const [done, setIsDone] = useState(false)
 
   function handleCreateGoal(){
 
@@ -22,7 +21,7 @@ function App() {
       id: crypto.randomUUID(),
       title: goal,
       description: description,
-      isDone: done
+      isDone: false,
     }
     
     setGoalsList((goal) => [...goal, newGoal])
@@ -32,13 +31,19 @@ function App() {
     setGoalsList((prevGoal) => prevGoal.filter((goal) => goal.id !== id))
   }
 
+  function handleIsDone(id: string){
+    setGoalsList((prev) => prev.map((goal) => 
+      goal.id == id ? {...goal, isDone: !goal.isDone} : goal
+    ))
+  } 
+
   return (
     <>
       <main className="h-screen bg-sky-200 flex justify-center items-center">
         <section className="w-200 h-200 bg-sky-500 flex flex-col p-3 gap-10 rounded-xl shadow-blue-950 shadow-2xl">
           <Header title="Goals Flow"/>
           <CreateForm goal={goal} setGoal={setGoal} description={description} setDescription={setDescription} handleCreateGoal={handleCreateGoal}/>
-          <GoalsList goals={goalsList} handleDelete={handleDelete}/>
+          <GoalsList goals={goalsList} handleDelete={handleDelete} handleIsDone={handleIsDone}/>
         </section>
       </main>
     </>

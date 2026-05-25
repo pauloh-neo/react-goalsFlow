@@ -2,11 +2,13 @@ import { type Goals } from "../App";
 import Button from "./Button";
 
 type GoalsListProps = {
-    goals: Goals[],
-    handleDelete:  (id: string) => void;
+    goals: Goals[];
+
+    handleDelete: (id:string) => void;
+    handleIsDone: (id:string) => void;
 }
 
-export function GoalsList({goals, handleDelete}:GoalsListProps){
+export function GoalsList({goals, handleDelete, handleIsDone}:GoalsListProps){
 
     // const arrNum = Array.from({length: 5}, (_, i) => i)
     // console.log(arrNum)
@@ -16,10 +18,14 @@ export function GoalsList({goals, handleDelete}:GoalsListProps){
             {goals.map((goal) => (
                 <li className="bg-sky-300 p-4 flex justify-between shadow-sky-200 shadow-xl" key={goal.id}>
                     <div>
-                        <h2>{goal.title}</h2>
+                        <h2 className={`${goal.isDone? "line-through" : ""}`}>{goal.title}</h2>
                         <p>{goal.description}.</p>
+
                     </div>
-                    <Button onClick={() => handleDelete(goal.id)} variant="secondary" size="md">Delete</Button>
+                    <div className="flex gap-2">
+                        <Button onClick={() => handleIsDone(goal.id)} variant="primary" size="md">Done</Button>
+                        <Button onClick={() => handleDelete(goal.id)} variant="secondary" size="md">Delete</Button>
+                    </div>
                 </li>
             ))}
         </ul>
