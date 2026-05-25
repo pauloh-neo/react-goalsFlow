@@ -8,6 +8,7 @@ export type Goals = {
     title: string;
     description: string;
     isDone: boolean;
+    CreatedAt: string;
 }
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       title: goal,
       description: description,
       isDone: false,
+      CreatedAt: new Date().toISOString(),
     }
     
     setGoalsList((goal) => [...goal, newGoal])
