@@ -17,7 +17,7 @@ export function GoalsList({goals, handleDelete, handleIsDone}:GoalsListProps){
     if(goals.length === 0){
         return(
             <InfoBox mode="hint">
-                <p>Start adding your goals!</p>
+                <p className="text-center font-bold text-xl text-green-400">Start adding your goals!</p>
             </InfoBox>
         )
     }
@@ -27,7 +27,7 @@ export function GoalsList({goals, handleDelete, handleIsDone}:GoalsListProps){
     if(goals.length >= 4){
         warningBox = (
             <InfoBox mode="warning">
-                <p>You're collecting a lot of goals. Don't put too much on your plate! </p>
+                <p className="text-center font-bold text-xl text-red-400">You're collecting a lot of goals. Don't put too much on your plate! </p>
             </InfoBox>
         )
     }
@@ -44,10 +44,10 @@ export function GoalsList({goals, handleDelete, handleIsDone}:GoalsListProps){
                             <span className="text-yellow-200">{new Date(goal.CreatedAt).toLocaleDateString()}</span>
                         </div>
                         <div className="flex gap-2">
-                            <button >
+                            <button onClick={() => handleIsDone(goal.id)}>
                                 <Check className="text-gray-50 cursor-pointer hover:text-gray-300" size={24}/>
                             </button>
-                            <button>
+                            <button onClick={() => handleDelete(goal.id)}>
                                 <Trash className="text-gray-50 cursor-pointer hover:text-gray-300" size={24}/>
                             </button>
                             {/* <Button onClick={() => handleIsDone(goal.id)} variant="primary" size="md">Done</Button>

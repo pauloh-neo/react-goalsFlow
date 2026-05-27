@@ -9,15 +9,15 @@ export function InfoBox({children, mode}: InfoBoxProps){
 
     if(mode === 'hint'){
         return(
-            <span>
+            <div className="bg-slate-50 p-4 rounded-2xl">
                 {children}
-            </span>
+            </div>
         )
     }
 
     return(
-        <span>
+        <div className="bg-slate-50 p-4 rounded-2xl">
             {children}
-        </span>
+        </div>
     )
 }
