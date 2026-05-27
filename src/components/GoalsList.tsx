@@ -26,7 +26,7 @@ export function GoalsList({goals, handleDelete, handleIsDone}:GoalsListProps){
 
     if(goals.length >= 4){
         warningBox = (
-            <InfoBox mode="warning">
+            <InfoBox mode="warning" severity="high">
                 <p className="text-center font-bold text-xl text-red-400">You're collecting a lot of goals. Don't put too much on your plate! </p>
             </InfoBox>
         )
